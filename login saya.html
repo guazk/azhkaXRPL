@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .input-field:focus {
+            border-color: #007BFF;
+        }
+        .login-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            border: none;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .login-btn:hover {
+            background-color: #0056b3;
+        }
+        .error-message {
+            color: red;
+            font-size: 14px;
+            text-align: center;
+            margin-bottom: 10px;
+            display: none; /* Tersembunyi secara default */
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <!-- Pesan error yang akan ditampilkan jika login gagal -->
+        <p class="error-message" id="error-message">Username atau password salah!</p>
+
+        <form id="login-form" onsubmit="return validateLogin(event)">
+            <input type="text" class="input-field" id="username" placeholder="Username" required>
+            <input type="password" class="input-field" id="password" placeholder="Password" required>
+            <button type="submit" class="login-btn">Login</button>
+        </form>
+    </div>
+
+    <script>
+        function validateLogin(event) {
+            event.preventDefault();  // Menghentikan form agar tidak langsung submit
+
+            // Ambil nilai input username dan password
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Cek apakah username dan password sesuai (misalnya username: admin, password: 12345)
+            if (username === 'guazk' && password === 'azhka1246x') {
+                // Login berhasil, alihkan ke halaman lain (misalnya dashboard.html)
+                window.location.href = 'https://guazk.github.io/azhkaXRPL';  // Ganti 'dashboard.html' dengan halaman yang kamu inginkan
+            } else {
+                // Tampilkan pesan error jika login gagal
+                const errorMessage = document.getElementById('error-message');
+                errorMessage.style.display = 'block';  // Tampilkan pesan error
+            }
+        }
+    </script>
+</body>
+</html>
